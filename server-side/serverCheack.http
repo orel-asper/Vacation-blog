@@ -1,0 +1,94 @@
+//Signup
+###
+POST http://localhost:3005/signup
+content-type: application/json
+
+{ 
+ "first_name": "sofia",
+ "last_name": "rubenchik", 
+ "user_name": "sofi", 
+ "password": "123456",
+ "role":"admin"
+}
+//Signin
+###
+POST http://localhost:3005/signin
+content-type: application/json
+
+{ 
+ "user_name": "sofi", 
+ "password": "123456"
+}
+
+// Authorization
+###
+GET http://localhost:3005/users
+Authorization: Bearer {token}
+
+//allvications
+###
+GET http://localhost:3005/allvications
+content-type: application/json
+
+//add new vication
+###
+POST http://localhost:3005/addvication
+content-type: application/json
+Authorization: Bearer {token}
+
+ {
+   "description": "You are more then welcome to Discover This Awesome Place!",
+   "destination": "italy",
+   "images": "https://static1.bigstockphoto.com/5/8/2/large1500/285801616.jpg",
+   "from_date": "2020/11/10",
+   "to_date": "2020/11/10", 
+   "price": "100"
+ }
+
+ //delete vication
+###
+DELETE http://localhost:3005/deletevication/{id}
+Authorization: Bearer {token}
+
+ //search vication
+###
+POST http://localhost:3005/searchvication
+content-type: application/json
+
+{
+  "value": "russia",
+  "from_date": "2020-11-24",
+  "to_date": "2020-11-28"
+}
+
+// update vication
+###
+PUT http://localhost:3005/updatevication/{vication id}
+content-type: application/json
+Authorization: Bearer {token}
+
+ {
+   "description": "Update a new vication",
+   "destination": "iraq",
+   "images": "url image",
+   "from_date": "2020/11/10",
+   "to_date": "2020/11/10", 
+   "price": "300"
+ }
+
+// like or dislike
+###
+POST http://localhost:3005/like/{vication_id}
+content-type: application/json
+
+{
+  "user_name": "sofi"
+}
+
+// get the count of likes for each vication
+###
+GET http://localhost:3005/followers/{vication_id}
+
+
+
+
